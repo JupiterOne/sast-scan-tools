@@ -1,0 +1,530 @@
+{
+  "messageText": "SHA1 is a a weak hash which is known to have collision. Use a strong hashing function.",
+  "findings": [
+    {
+      "message": {
+        "text": "SHA1 is a a weak hash which is known to have collision. Use a strong hashing function."
+      },
+      "level": "note",
+      "locations": [
+        {
+          "physicalLocation": {
+            "region": {
+              "snippet": {
+                "text": "  return crypto.createHash('sha1').update(str).digest('hex');\n"
+              },
+              "startLine": 9816
+            },
+            "artifactLocation": {
+              "uri": "file:///Users/erichs/repos/jupiter-mapper/deploy/terraform/dist/lambdas/jupiter-mapper-rebuild.js"
+            },
+            "contextRegion": {
+              "snippet": {
+                "text": "exports.hash = function (str) {\n  return crypto.createHash('sha1').update(str).digest('hex');\n"
+              },
+              "endLine": 9816,
+              "startLine": 9815
+            }
+          }
+        }
+      ],
+      "properties": {
+        "issue_confidence": "LOW",
+        "issue_severity": "LOW"
+      },
+      "hostedViewerUri": "https://sarifviewer.azurewebsites.net",
+      "ruleId": "",
+      "ruleIndex": 0
+    },
+    {
+      "message": {
+        "text": "SHA1 is a a weak hash which is known to have collision. Use a strong hashing function."
+      },
+      "level": "note",
+      "locations": [
+        {
+          "physicalLocation": {
+            "region": {
+              "snippet": {
+                "text": "  return external_crypto_default.a.createHash('sha1').update(bytes).digest();\n"
+              },
+              "startLine": 11081
+            },
+            "artifactLocation": {
+              "uri": "file:///Users/erichs/repos/jupiter-mapper/deploy/terraform/dist/lambdas/jupiter-mapper-rebuild.js"
+            },
+            "contextRegion": {
+              "snippet": {
+                "text": "\n  return external_crypto_default.a.createHash('sha1').update(bytes).digest();\n"
+              },
+              "endLine": 11081,
+              "startLine": 11080
+            }
+          }
+        }
+      ],
+      "properties": {
+        "issue_confidence": "LOW",
+        "issue_severity": "LOW"
+      },
+      "hostedViewerUri": "https://sarifviewer.azurewebsites.net",
+      "ruleId": "",
+      "ruleIndex": 0
+    },
+    {
+      "message": {
+        "text": "SHA1 is a a weak hash which is known to have collision. Use a strong hashing function."
+      },
+      "level": "note",
+      "locations": [
+        {
+          "physicalLocation": {
+            "region": {
+              "snippet": {
+                "text": "    const digest = crypto.createHash('sha1').update(key + GUID).digest('base64');\n"
+              },
+              "startLine": 34575
+            },
+            "artifactLocation": {
+              "uri": "file:///Users/erichs/repos/jupiter-mapper/deploy/terraform/dist/lambdas/jupiter-mapper-rebuild.js"
+            },
+            "contextRegion": {
+              "snippet": {
+                "text": "    req = websocket._req = null;\n    const digest = crypto.createHash('sha1').update(key + GUID).digest('base64');\n"
+              },
+              "endLine": 34575,
+              "startLine": 34574
+            }
+          }
+        }
+      ],
+      "properties": {
+        "issue_confidence": "LOW",
+        "issue_severity": "LOW"
+      },
+      "hostedViewerUri": "https://sarifviewer.azurewebsites.net",
+      "ruleId": "",
+      "ruleIndex": 0
+    },
+    {
+      "message": {
+        "text": "SHA1 is a a weak hash which is known to have collision. Use a strong hashing function."
+      },
+      "level": "note",
+      "locations": [
+        {
+          "physicalLocation": {
+            "region": {
+              "snippet": {
+                "text": "    this.sha = crypto_1.createHash(\"sha1\").update(lua).digest(\"hex\");\n"
+              },
+              "startLine": 56996
+            },
+            "artifactLocation": {
+              "uri": "file:///Users/erichs/repos/jupiter-mapper/deploy/terraform/dist/lambdas/jupiter-mapper-rebuild.js"
+            },
+            "contextRegion": {
+              "snippet": {
+                "text": "    this.readOnly = readOnly;\n    this.sha = crypto_1.createHash(\"sha1\").update(lua).digest(\"hex\");\n"
+              },
+              "endLine": 56996,
+              "startLine": 56995
+            }
+          }
+        }
+      ],
+      "properties": {
+        "issue_confidence": "LOW",
+        "issue_severity": "LOW"
+      },
+      "hostedViewerUri": "https://sarifviewer.azurewebsites.net",
+      "ruleId": "",
+      "ruleIndex": 0
+    },
+    {
+      "message": {
+        "text": "SHA1 is a a weak hash which is known to have collision. Use a strong hashing function."
+      },
+      "level": "note",
+      "locations": [
+        {
+          "physicalLocation": {
+            "region": {
+              "snippet": {
+                "text": "    const digest = crypto.createHash('sha1').update(key + GUID).digest('base64');\n"
+              },
+              "startLine": 63127
+            },
+            "artifactLocation": {
+              "uri": "file:///Users/erichs/repos/jupiter-mapper/deploy/terraform/dist/lambdas/jupiter-mapper-rebuild.js"
+            },
+            "contextRegion": {
+              "snippet": {
+                "text": "    if (!socket.readable || !socket.writable) return socket.destroy();\n    const digest = crypto.createHash('sha1').update(key + GUID).digest('base64');\n"
+              },
+              "endLine": 63127,
+              "startLine": 63126
+            }
+          }
+        }
+      ],
+      "properties": {
+        "issue_confidence": "LOW",
+        "issue_severity": "LOW"
+      },
+      "hostedViewerUri": "https://sarifviewer.azurewebsites.net",
+      "ruleId": "",
+      "ruleIndex": 0
+    },
+    {
+      "message": {
+        "text": "SHA1 is a a weak hash which is known to have collision. Use a strong hashing function."
+      },
+      "level": "note",
+      "locations": [
+        {
+          "physicalLocation": {
+            "region": {
+              "snippet": {
+                "text": "  return crypto.createHash('sha1').update(str).digest('hex');\n"
+              },
+              "startLine": 9796
+            },
+            "artifactLocation": {
+              "uri": "file:///Users/erichs/repos/jupiter-mapper/deploy/terraform/dist/lambdas/jupiter-mapper-rebuild-entity.js"
+            },
+            "contextRegion": {
+              "snippet": {
+                "text": "exports.hash = function (str) {\n  return crypto.createHash('sha1').update(str).digest('hex');\n"
+              },
+              "endLine": 9796,
+              "startLine": 9795
+            }
+          }
+        }
+      ],
+      "properties": {
+        "issue_confidence": "LOW",
+        "issue_severity": "LOW"
+      },
+      "hostedViewerUri": "https://sarifviewer.azurewebsites.net",
+      "ruleId": "",
+      "ruleIndex": 0
+    },
+    {
+      "message": {
+        "text": "SHA1 is a a weak hash which is known to have collision. Use a strong hashing function."
+      },
+      "level": "note",
+      "locations": [
+        {
+          "physicalLocation": {
+            "region": {
+              "snippet": {
+                "text": "  return external_crypto_default.a.createHash('sha1').update(bytes).digest();\n"
+              },
+              "startLine": 11061
+            },
+            "artifactLocation": {
+              "uri": "file:///Users/erichs/repos/jupiter-mapper/deploy/terraform/dist/lambdas/jupiter-mapper-rebuild-entity.js"
+            },
+            "contextRegion": {
+              "snippet": {
+                "text": "\n  return external_crypto_default.a.createHash('sha1').update(bytes).digest();\n"
+              },
+              "endLine": 11061,
+              "startLine": 11060
+            }
+          }
+        }
+      ],
+      "properties": {
+        "issue_confidence": "LOW",
+        "issue_severity": "LOW"
+      },
+      "hostedViewerUri": "https://sarifviewer.azurewebsites.net",
+      "ruleId": "",
+      "ruleIndex": 0
+    },
+    {
+      "message": {
+        "text": "SHA1 is a a weak hash which is known to have collision. Use a strong hashing function."
+      },
+      "level": "note",
+      "locations": [
+        {
+          "physicalLocation": {
+            "region": {
+              "snippet": {
+                "text": "    const digest = crypto.createHash('sha1').update(key + GUID).digest('base64');\n"
+              },
+              "startLine": 34008
+            },
+            "artifactLocation": {
+              "uri": "file:///Users/erichs/repos/jupiter-mapper/deploy/terraform/dist/lambdas/jupiter-mapper-rebuild-entity.js"
+            },
+            "contextRegion": {
+              "snippet": {
+                "text": "    req = websocket._req = null;\n    const digest = crypto.createHash('sha1').update(key + GUID).digest('base64');\n"
+              },
+              "endLine": 34008,
+              "startLine": 34007
+            }
+          }
+        }
+      ],
+      "properties": {
+        "issue_confidence": "LOW",
+        "issue_severity": "MEDIUM"
+      },
+      "hostedViewerUri": "https://sarifviewer.azurewebsites.net",
+      "ruleId": "",
+      "ruleIndex": 0
+    },
+    {
+      "message": {
+        "text": "SHA1 is a a weak hash which is known to have collision. Use a strong hashing function."
+      },
+      "level": "note",
+      "locations": [
+        {
+          "physicalLocation": {
+            "region": {
+              "snippet": {
+                "text": "    this.sha = crypto_1.createHash(\"sha1\").update(lua).digest(\"hex\");\n"
+              },
+              "startLine": 56190
+            },
+            "artifactLocation": {
+              "uri": "file:///Users/erichs/repos/jupiter-mapper/deploy/terraform/dist/lambdas/jupiter-mapper-rebuild-entity.js"
+            },
+            "contextRegion": {
+              "snippet": {
+                "text": "    this.readOnly = readOnly;\n    this.sha = crypto_1.createHash(\"sha1\").update(lua).digest(\"hex\");\n"
+              },
+              "endLine": 56190,
+              "startLine": 56189
+            }
+          }
+        }
+      ],
+      "properties": {
+        "issue_confidence": "LOW",
+        "issue_severity": "HIGH"
+      },
+      "hostedViewerUri": "https://sarifviewer.azurewebsites.net",
+      "ruleId": "",
+      "ruleIndex": 0
+    },
+    {
+      "message": {
+        "text": "SHA1 is a a weak hash which is known to have collision. Use a strong hashing function."
+      },
+      "level": "note",
+      "locations": [
+        {
+          "physicalLocation": {
+            "region": {
+              "snippet": {
+                "text": "    const digest = crypto.createHash('sha1').update(key + GUID).digest('base64');\n"
+              },
+              "startLine": 62321
+            },
+            "artifactLocation": {
+              "uri": "file:///Users/erichs/repos/jupiter-mapper/deploy/terraform/dist/lambdas/jupiter-mapper-rebuild-entity.js"
+            },
+            "contextRegion": {
+              "snippet": {
+                "text": "    if (!socket.readable || !socket.writable) return socket.destroy();\n    const digest = crypto.createHash('sha1').update(key + GUID).digest('base64');\n"
+              },
+              "endLine": 62321,
+              "startLine": 62320
+            }
+          }
+        }
+      ],
+      "properties": {
+        "issue_confidence": "LOW",
+        "issue_severity": "LOW"
+      },
+      "hostedViewerUri": "https://sarifviewer.azurewebsites.net",
+      "ruleId": "",
+      "ruleIndex": 0
+    },
+    {
+      "message": {
+        "text": "SHA1 is a a weak hash which is known to have collision. Use a strong hashing function."
+      },
+      "level": "note",
+      "locations": [
+        {
+          "physicalLocation": {
+            "region": {
+              "snippet": {
+                "text": "  return crypto.createHash('sha1').update(str).digest('hex');\n"
+              },
+              "startLine": 9816
+            },
+            "artifactLocation": {
+              "uri": "file:///Users/erichs/repos/jupiter-mapper/deploy/terraform/dist/lambdas/jupiter-mapper.js"
+            },
+            "contextRegion": {
+              "snippet": {
+                "text": "exports.hash = function (str) {\n  return crypto.createHash('sha1').update(str).digest('hex');\n"
+              },
+              "endLine": 9816,
+              "startLine": 9815
+            }
+          }
+        }
+      ],
+      "properties": {
+        "issue_confidence": "LOW",
+        "issue_severity": "LOW"
+      },
+      "hostedViewerUri": "https://sarifviewer.azurewebsites.net",
+      "ruleId": "",
+      "ruleIndex": 0
+    },
+    {
+      "message": {
+        "text": "SHA1 is a a weak hash which is known to have collision. Use a strong hashing function."
+      },
+      "level": "note",
+      "locations": [
+        {
+          "physicalLocation": {
+            "region": {
+              "snippet": {
+                "text": "  return external_crypto_default.a.createHash('sha1').update(bytes).digest();\n"
+              },
+              "startLine": 11081
+            },
+            "artifactLocation": {
+              "uri": "file:///Users/erichs/repos/jupiter-mapper/deploy/terraform/dist/lambdas/jupiter-mapper.js"
+            },
+            "contextRegion": {
+              "snippet": {
+                "text": "\n  return external_crypto_default.a.createHash('sha1').update(bytes).digest();\n"
+              },
+              "endLine": 11081,
+              "startLine": 11080
+            }
+          }
+        }
+      ],
+      "properties": {
+        "issue_confidence": "LOW",
+        "issue_severity": "LOW"
+      },
+      "hostedViewerUri": "https://sarifviewer.azurewebsites.net",
+      "ruleId": "",
+      "ruleIndex": 0
+    },
+    {
+      "message": {
+        "text": "SHA1 is a a weak hash which is known to have collision. Use a strong hashing function."
+      },
+      "level": "note",
+      "locations": [
+        {
+          "physicalLocation": {
+            "region": {
+              "snippet": {
+                "text": "    const digest = crypto.createHash('sha1').update(key + GUID).digest('base64');\n"
+              },
+              "startLine": 34575
+            },
+            "artifactLocation": {
+              "uri": "file:///Users/erichs/repos/jupiter-mapper/deploy/terraform/dist/lambdas/jupiter-mapper.js"
+            },
+            "contextRegion": {
+              "snippet": {
+                "text": "    req = websocket._req = null;\n    const digest = crypto.createHash('sha1').update(key + GUID).digest('base64');\n"
+              },
+              "endLine": 34575,
+              "startLine": 34574
+            }
+          }
+        }
+      ],
+      "properties": {
+        "issue_confidence": "LOW",
+        "issue_severity": "LOW"
+      },
+      "hostedViewerUri": "https://sarifviewer.azurewebsites.net",
+      "ruleId": "",
+      "ruleIndex": 0
+    },
+    {
+      "message": {
+        "text": "SHA1 is a a weak hash which is known to have collision. Use a strong hashing function."
+      },
+      "level": "note",
+      "locations": [
+        {
+          "physicalLocation": {
+            "region": {
+              "snippet": {
+                "text": "    this.sha = crypto_1.createHash(\"sha1\").update(lua).digest(\"hex\");\n"
+              },
+              "startLine": 56996
+            },
+            "artifactLocation": {
+              "uri": "file:///Users/erichs/repos/jupiter-mapper/deploy/terraform/dist/lambdas/jupiter-mapper.js"
+            },
+            "contextRegion": {
+              "snippet": {
+                "text": "    this.readOnly = readOnly;\n    this.sha = crypto_1.createHash(\"sha1\").update(lua).digest(\"hex\");\n"
+              },
+              "endLine": 56996,
+              "startLine": 56995
+            }
+          }
+        }
+      ],
+      "properties": {
+        "issue_confidence": "LOW",
+        "issue_severity": "LOW"
+      },
+      "hostedViewerUri": "https://sarifviewer.azurewebsites.net",
+      "ruleId": "",
+      "ruleIndex": 0
+    },
+    {
+      "message": {
+        "text": "SHA1 is a a weak hash which is known to have collision. Use a strong hashing function."
+      },
+      "level": "note",
+      "locations": [
+        {
+          "physicalLocation": {
+            "region": {
+              "snippet": {
+                "text": "    const digest = crypto.createHash('sha1').update(key + GUID).digest('base64');\n"
+              },
+              "startLine": 63127
+            },
+            "artifactLocation": {
+              "uri": "file:///Users/erichs/repos/jupiter-mapper/deploy/terraform/dist/lambdas/jupiter-mapper.js"
+            },
+            "contextRegion": {
+              "snippet": {
+                "text": "    if (!socket.readable || !socket.writable) return socket.destroy();\n    const digest = crypto.createHash('sha1').update(key + GUID).digest('base64');\n"
+              },
+              "endLine": 63127,
+              "startLine": 63126
+            }
+          }
+        }
+      ],
+      "properties": {
+        "issue_confidence": "LOW",
+        "issue_severity": "LOW"
+      },
+      "hostedViewerUri": "https://sarifviewer.azurewebsites.net",
+      "ruleId": "",
+      "ruleIndex": 0
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+[
+  {
+    "name": "SQL Injection",
+    "justification": "High false-positive rate. Existing controls for database scanning in place.",
+    "ignoreString": "Untrusted User Input in RAW SQL Query can cause SQL Injection.",
+    "scanner": "sast-scan",
+    "webLink": "https://github.com/AppThreat/sast-scan/"
+  },
+  {
+    "name": "Hardcoded Password",
+    "justification": "High false-positive rate. Existing scan controls for leaked credentials.",
+    "ignoreString": "A hardcoded password in plain text was identified.",
+    "scanner": "sast-scan",
+    "webLink": "https://github.com/AppThreat/sast-scan/"
+  }
+]

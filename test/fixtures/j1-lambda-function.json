@@ -1,0 +1,12 @@
+{
+            "entityId": "fb62d64c-622a-4317-b923-c3bdaca55282",
+            "type": "aws_lambda_function",
+            "lastModified": 1590698547524,
+            "updatedOn": 1590698547524,
+            "runtime": "nodejs12.x",
+            "name": "jupiter-mapper",
+            "arn": "arn:aws:lambda:us-east-1:564077667165:function:jupiter-mapper",
+            "region": "us-east-1",
+            "webLink": "https://console.aws.amazon.com/lambda/home?region=us-east-1#/functions/jupiter-mapper",
+            "accountName": "jupiterone-dev"
+        }
