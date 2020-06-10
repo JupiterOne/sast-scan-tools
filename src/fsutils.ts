@@ -22,22 +22,6 @@ export async function cleanDir(dirPath: string): Promise<void> {
   return fs.remove(dirPath);
 }
 
-export function detectLambdaScanType(runtime: string): string {
-  if (runtime.match(/nodejs/i)) {
-    return "nodejs";
-  }
-  if (runtime.match(/python/i)) {
-    return "python";
-  }
-  if (runtime.match(/go/i)) {
-    return "go";
-  }
-  if (runtime.match(/java/i)) {
-    return "java";
-  }
-  return "unknown";
-}
-
 export async function downloadFile(
   fileUrl: string,
   outFilePath: string
