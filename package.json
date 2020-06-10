@@ -19,6 +19,7 @@
     "test:ci": "yarn lint && yarn type-check && yarn test",
     "prebuild": "yarn test:ci",
     "build": "tsc -p tsconfig.dist.json --declaration",
+    "prepush": "yarn test:ci",
     "prepack": "yarn build"
   },
   "dependencies": {
