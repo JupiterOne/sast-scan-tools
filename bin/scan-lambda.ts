@@ -7,7 +7,7 @@ import {
   getJ1SASTScanIgnoreRules,
 } from "../src/jupiterone";
 import JupiterOneClient from "@jupiterone/jupiterone-client-nodejs";
-import { downloadFile, createTempDir } from "../src/fsutils";
+import { downloadFile, createTempDir, cleanDir } from "../src/fsutils";
 import { filterGroupedScanResults } from "../src/filter";
 import { ScanOutput } from "../src/types";
 import { scanLambda } from "../src/lambda";
@@ -78,6 +78,7 @@ async function run(): Promise<void> {
     const scanReport: ScanOutput = require(reportFile); // eslint-disable-line @typescript-eslint/no-var-requires
     const groupedReport = filterGroupedScanResults(scanReport, tuningRules);
     await processFindingUpserts(j1Client, groupedReport, entity);
+    await cleanDir(tempDir);
   }
 }
 

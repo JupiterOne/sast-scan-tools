@@ -12,9 +12,11 @@ export async function extractZipfile(
   await spawnAsync("unzip", [zipFile, "-d", extractPath]);
 }
 
+// NOTE: this temp dir is not truly random. Should not be considered safe to use on
+// a multi-user system, where others may gain write access to /tmp.
 export async function createTempDir(): Promise<string> {
   const tempDir = "/tmp/" + uuidV4();
-  await fs.ensureDir(tempDir);
+  await fs.ensureDir(tempDir, 0o0700);
   return tempDir;
 }
 
