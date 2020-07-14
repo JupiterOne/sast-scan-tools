@@ -1,5 +1,5 @@
 import { lambda } from "./aws";
-import { extractZipfile } from "../src/fsutils";
+import { extractZipfile } from "./fsutils";
 import path from "path";
 import { Files } from "@zouloux/files";
 import spawnAsync from "await-spawn";
