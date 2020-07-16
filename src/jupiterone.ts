@@ -14,10 +14,15 @@ export async function getJ1SASTScanIgnoreRules(
   return res.map((i) => i.properties) as JupiterOneSastScanIgnoreRule[];
 }
 
+function verboseLog(context: string, str: string): void {
+  console.log(context + ': "' + str.replace(/\s+/g, " ").trim() + '"');
+}
+
 export async function getJ1LambdaFunctionEntities(
   j1Client: JupiterOneClient,
   accountName: string,
-  withinLast: string
+  withinLast: string,
+  verbose = false
 ): Promise<JupiterOneLambdaFunction[]> {
   // withinLast must be a string interpretable by J1's date parsing, like:
   // '30 days', '1 month', etc
@@ -40,6 +45,10 @@ export async function getJ1LambdaFunctionEntities(
     f.tag.AccountName as accountName,
     f.tag.Project as project`;
 
+  if (verbose) {
+    verboseLog("getJ1LambdaFunctionEntities j1ql", query);
+  }
+
   const res = await j1Client.queryV1(query);
   return (res as unknown) as JupiterOneLambdaFunction[];
 }
@@ -47,7 +56,8 @@ export async function getJ1LambdaFunctionEntities(
 export async function getJ1ECSTaskDefinitionEntities(
   j1Client: JupiterOneClient,
   accountName: string,
-  withinLast: string
+  withinLast: string,
+  verbose = false
 ): Promise<JupiterOneECSTaskDefinition[]> {
   const query = `FIND aws_ecs_task_definition with tag.AccountName='${accountName}' and _createdOn >= date.now - ${withinLast} as t
   RETURN
@@ -62,6 +72,11 @@ export async function getJ1ECSTaskDefinitionEntities(
     t.webLink as webLink,
     t.tag.AccountName as accountName,
     t.tag.Project as project`;
+
+  if (verbose) {
+    verboseLog("getJ1ECSTaskDefinitionEntities j1ql", query);
+  }
+
   const res = await j1Client.queryV1(query);
   return (res as unknown) as JupiterOneECSTaskDefinition[];
 }
