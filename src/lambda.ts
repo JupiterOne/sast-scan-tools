@@ -47,7 +47,13 @@ export async function scanLambda(
     "/lambdazip",
   ];
   console.log("cmd: docker " + dockerArgs.join(" "));
-  await spawnAsync("docker", dockerArgs);
+  try {
+    await spawnAsync("docker", dockerArgs);
+  } catch (err) {
+    console.error("Docker error, exited with code: " + err.code);
+    console.error("Stderr: " + err.stderr.toString());
+    throw new Error("Unrecoverable Docker error!");
+  }
   // return path to generic 'all-' report, which may include findings from any runtime scanner
   const reportPath = (await Files.any(tempDir + "/all-*-report.json")).files[0];
   return reportPath;

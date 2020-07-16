@@ -1,6 +1,6 @@
 {
   "name": "@jupiterone/sast-scan-tools",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "tools for using AppThreat/sast-scan with JupiterOne",
   "license": "MPL-2.0",
   "main": "dist/index.js",
