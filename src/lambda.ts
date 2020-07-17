@@ -68,7 +68,7 @@ export async function scanLambda(
     const lsTempDir = await spawnAsync("ls", ["-l", tempDir]);
     console.log(lsTempDir.toString());
     const mountOutput = await spawnAsync("mount");
-    console.log(mountOutput);
+    console.log(mountOutput.toString());
   }
   // return path to generic 'all-' report, which may include findings from any runtime scanner
   const reportPath = (await Files.any(tempDir + "/all-*-report.json")).files[0];
