@@ -32,14 +32,7 @@ export async function scanLambda(
   const scanType = detectLambdaScanType(runtime);
   console.log("scanning contents of extracted zipfile in: " + tempDir);
 
-  let dockerArgs = [
-    "run",
-    "--rm",
-    "-e",
-    `WORKSPACE=${tempDir}`,
-    "-v",
-    `${tempDir}:/lambdazip:cached`,
-  ];
+  let dockerArgs = ["run", "--rm", "-e", `WORKSPACE=${tempDir}`];
   if (dockerInDocker) {
     // running this code inside a docker container requires a passthru volume
     // mount for the outer docker socket
@@ -49,6 +42,8 @@ export async function scanLambda(
     ]);
   }
   dockerArgs = dockerArgs.concat([
+    "-v",
+    `${tempDir}:/lambdazip:cached`,
     sastDockerImage,
     "scan",
     "--src",
