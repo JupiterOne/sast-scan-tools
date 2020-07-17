@@ -26,7 +26,8 @@ export async function scanLambda(
   tempDir: string,
   runtime: string,
   sastDockerImage: string,
-  dockerInDocker = false
+  dockerInDocker = false,
+  verbose = false
 ): Promise<string> {
   await extractZipfile(path.join(tempDir, "lambda.zip"), tempDir);
   const scanType = detectLambdaScanType(runtime);
@@ -60,6 +61,14 @@ export async function scanLambda(
     console.error("Docker error, exited with code: " + err.code);
     console.error("Stderr: " + err.stderr.toString());
     throw new Error("Unrecoverable Docker error!");
+  }
+  if (verbose) {
+    const lsTmp = await spawnAsync("ls", ["-l", "/tmp/"]);
+    console.log(lsTmp.toString());
+    const lsTempDir = await spawnAsync("ls", ["-l", tempDir]);
+    console.log(lsTempDir.toString());
+    const mountOutput = await spawnAsync("mount");
+    console.log(mountOutput);
   }
   // return path to generic 'all-' report, which may include findings from any runtime scanner
   const reportPath = (await Files.any(tempDir + "/all-*-report.json")).files[0];
