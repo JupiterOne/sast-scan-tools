@@ -26,51 +26,47 @@ export async function scanLambda(
   tempDir: string,
   runtime: string,
   sastDockerImage: string,
-  dockerInDocker = false,
   verbose = false
 ): Promise<string> {
-  await extractZipfile(path.join(tempDir, "lambda.zip"), tempDir);
-  const scanType = detectLambdaScanType(runtime);
-  console.log("scanning contents of extracted zipfile in: " + tempDir);
-
-  let dockerArgs = ["run", "--rm", "-e", `WORKSPACE=${tempDir}`];
-  if (dockerInDocker) {
-    // running this code inside a docker container requires a passthru volume
-    // mount for the outer docker socket
-    dockerArgs = dockerArgs.concat([
-      "-v",
-      "/var/run/docker.sock:/var/run/docker.sock",
-    ]);
-  }
-  dockerArgs = dockerArgs.concat([
-    "-v",
-    `${tempDir}:/lambdazip:cached`,
-    sastDockerImage,
-    "scan",
-    "--src",
-    "/lambdazip" /* virtual, volume-mounted path */,
-    "--type",
-    scanType,
-    "--out_dir",
-    "/lambdazip",
-  ]);
-  console.log("cmd: docker " + dockerArgs.join(" "));
+  let dockerOutput;
   try {
-    await spawnAsync("docker", dockerArgs);
+    await extractZipfile(path.join(tempDir, "lambda.zip"), tempDir);
+    const scanType = detectLambdaScanType(runtime);
+    console.log("scanning contents of extracted zipfile in: " + tempDir);
+
+    const dockerArgs = [
+      "run",
+      "--rm",
+      "-e",
+      `WORKSPACE=${tempDir}`,
+      "-v",
+      `${tempDir}:/lambdazip:cached`,
+      sastDockerImage,
+      "scan",
+      "--src",
+      "/lambdazip" /* virtual, volume-mounted path */,
+      "--type",
+      scanType,
+      "--out_dir",
+      "/lambdazip",
+    ];
+    if (verbose) {
+      console.log("cmd: docker " + dockerArgs.join(" "));
+    }
+
+    dockerOutput = await spawnAsync("docker", dockerArgs);
+    if (verbose) {
+      console.log(dockerOutput.toString());
+    }
   } catch (err) {
-    console.error("Docker error, exited with code: " + err.code);
-    console.error("Stderr: " + err.stderr.toString());
-    throw new Error("Unrecoverable Docker error!");
+    if (err.code && err.stderr) {
+      console.warn("Docker error, exited with code: " + err.code);
+      console.warn("Stderr: " + err.stderr.toString());
+    } else {
+      console.warn("Error scanning lambda: ", err);
+    }
   }
-  if (verbose) {
-    const lsTmp = await spawnAsync("ls", ["-l", "/tmp/"]);
-    console.log(lsTmp.toString());
-    const lsTempDir = await spawnAsync("ls", ["-l", tempDir]);
-    console.log(lsTempDir.toString());
-    const mountOutput = await spawnAsync("mount");
-    console.log(mountOutput);
-  }
-  // return path to generic 'all-' report, which may include findings from any runtime scanner
-  const reportPath = (await Files.any(tempDir + "/all-*-report.json")).files[0];
-  return reportPath;
+  // return path to generic 'all-' report, which when present may include findings from any runtime scanner
+  const fileScan = await Files.any(tempDir + "/all-*-report.json");
+  return fileScan.files[0];
 }
