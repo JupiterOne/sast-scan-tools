@@ -1,0 +1,13 @@
+name: Test
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    uses: JupiterOne/jupiter-workflows/.github/workflows/gitleaks.yml@main
+    
+
+
